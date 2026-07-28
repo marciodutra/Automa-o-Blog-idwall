@@ -6,13 +6,17 @@ import ArticlePage from '../../pages/ArticlePage.js';
 
 import { searchData } from '../../test-data/searchData.js';
 
+import { step } from '../../helpers/stepHelper.js';
+
 
 test('deve pesquisar e abrir um artigo no blog', async ({ page }) => {
   const homePage = new HomePage(page);
   const searchResultPage = new SearchResultPage(page);
   const articlePage = new ArticlePage(page);
 
-  await homePage.open();
+  await step('Abrir Home', async () => {
+    await homePage.open();
+});
 
   await homePage.search.openSearch();
 

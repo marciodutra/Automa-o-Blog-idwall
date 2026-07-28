@@ -5,11 +5,15 @@ import OthersPage from '../../pages/OthersPage.js';
 
 import { othersData } from '../../test-data/othersData.js';
 
+import { step } from '../../helpers/stepHelper.js';
+
 test('deve acessar a categoria Outros', async ({ page }) => {
   const homePage = new HomePage(page);
   const othersPage = new OthersPage(page);
 
-  await homePage.open();
+  await step('Abrir Home', async () => {
+    await homePage.open();
+});
 
   await othersPage.openCategory();
 
