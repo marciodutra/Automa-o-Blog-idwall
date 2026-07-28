@@ -11,6 +11,9 @@ test('deve pesquisar um artigo no blog', async ({ page }) => {
 
   await homePage.search.search('segurança');
 
-  await expect(page).toHaveURL(/s=/);
+  const articleTitle = page.getByText(
+    'Conheça o Device Integrity, nova atualização de segurança do SDK Capture Suite Mobile'
+  );
 
+  await expect(articleTitle).toBeVisible();
 });
